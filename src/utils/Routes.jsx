@@ -1,0 +1,21 @@
+import { ProtectedRoute } from "@/components/molecules/ProtectedRoute/ProtectedRoute"
+import { SigninContainer } from "@/components/organisms/Auth/SigninContainer"
+import { SignupContainer } from "@/components/organisms/Auth/SignupContainer"
+import Notfound from "@/components/organisms/Notfound/Notfound"
+import { Auth } from "@/pages/Auth/Auth"
+import { Home } from "@/pages/Home/Home"
+import { Route ,Routes} from "react-router-dom"
+
+ const AppRoutes = () => {
+  return (
+      <Routes>
+          <Route path="/auth/signup" element={<Auth> <SignupContainer /></Auth>} />
+          <Route path="/auth/signin" element={<Auth> <SigninContainer /></Auth>} />
+          <Route path="/home" element={<ProtectedRoute><Home/></ProtectedRoute>} />
+          <Route path="/*" element={<Notfound />} />
+        </Routes>
+  )
+}
+
+
+export default AppRoutes

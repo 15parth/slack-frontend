@@ -1,23 +1,23 @@
-import axios from '@config/axiosConfig';
+import axios from '../../config/axiosConfig';
 
-export const signUpRequest = async ({email,password,username}) =>{
+export const signUpRequest = async ({email,password,userName}) =>{
     try {
-        const response= axios.post("/user/signup",{
+        const response= await axios.post("/users/signup",{
             email,
             password,
-            username
+            userName
         });
 
         return response?.data;
     } catch (error) {
       console.error(error);
-       throw error.response.data;
+       throw error.message;
     }
 }
 
 export const signInRequest= async ({email, password})=>{
     try {
-         const response= axios.post("/users/signin",{
+         const response= await axios.post("/users/signin",{
             email,
             password,
         });
