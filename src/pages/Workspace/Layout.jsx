@@ -1,15 +1,17 @@
-import { WorkspaceNavbar } from '@/components/organisms/Workspace/WorkspaceNavbar';
-import { WorkspacePanel } from '@/components/organisms/Workspace/WorkspacePanel';
-import { WorkspaceSidebar } from '@/components/organisms/Workspace/WorkspaceSidebar';
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
+// import { WorkspacePanel } from '@/components/organisms/Workspace/WorkspacePanel';
+// import { WorkspaceSidebar } from '@/components/organisms/Workspace/WorkspaceSidebar';
+// import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
+
+import { WorkspaceNavbar } from "@/components/organisms/Workspace/WorkspaceNavbar";
+import { WorkspaceSidebar } from "@/components/organisms/Workspace/WorkspaceSidebar";
 
 export const WorkspaceLayout = ({ children }) => {
     return (
         <div className="h-[100vh]">
             <WorkspaceNavbar />
-            <div className="flex h-[calc(100vh-40px)]">
+             <div className="flex h-[calc(100vh-40px)]"> 
                 <WorkspaceSidebar />
-                <ResizablePanelGroup direction="horizontal" autoSaveId={'workspace-resize'}>
+                {/* <ResizablePanelGroup direction="horizontal" autoSaveId={'workspace-resize'}>
                     <ResizablePanel
                         defaultSize={20}
                         minSize={11}
@@ -23,9 +25,11 @@ export const WorkspaceLayout = ({ children }) => {
                     >
                         {children}
                     </ResizablePanel>
-                </ResizablePanelGroup>
+                </ResizablePanelGroup> */}
+
+                Workspace
                 
-            </div>
+            </div> 
         </div>
     );
 };
