@@ -1,22 +1,25 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation } from '@tanstack/react-query';
 
+import { signUpRequest } from '@/api/auth';
+import { toast } from 'sonner';
 
-import { signUpRequest } from "@/api/auth";
-
-export const useSignup = ()=>{
-    const {isPending, isSuccess, error , mutateAsync:signupMutation}= useMutation({
-        mutationFn:signUpRequest,
-        onSuccess:(data)=>{
-           console.log('Successfully signed up',data)
+export const useSignup = () => {
+    const { isPending, isSuccess, error, mutateAsync: signupMutation } = useMutation({
+        mutationFn: signUpRequest,
+        onSuccess: (data) => {
+            console.log('Scuccessfuilly signed up', data);
+           toast("Successfully signed up")
         },
-        onError:(error)=>{
-            console.log('Failed to sign up', error);
+        onError: (error) => {
+            console.error('Failed to sign up', error);
+           toast.error("Form submission failed")
         }
     });
+
     return {
         isPending,
         isSuccess,
         error,
         signupMutation
-    }
-}
+    };
+};

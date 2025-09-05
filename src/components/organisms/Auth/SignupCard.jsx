@@ -7,10 +7,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 
-export const SignupCard = ({ 
-    signupForm, 
-    setSignupForm, 
-    validationError, 
+export const SignupCard = ({
+    signupForm,
+    setSignupForm,
+    validationError,
     onSignupFormSubmit,
     error,
     isPending,
@@ -20,7 +20,7 @@ export const SignupCard = ({
     const navigate = useNavigate();
 
     return (
-        <Card classname="w-full h-full">
+        <Card className="w-full h-full bg-white">
             <CardHeader>
                 <CardTitle>Sign Up</CardTitle>
                 <CardDescription>Sign up to access your account</CardDescription>
@@ -35,12 +35,12 @@ export const SignupCard = ({
                 {error && (
                     <div className='bg-destructive/15 p-4 rounded-md flex items-center gap-x-2 text-sm text-destructive mb-6'>
                         <TriangleAlert className='size-5' />
-                        <p>{error.message}</p>
+                        <p>{error}</p>
                     </div>
                 )}
 
                 {isSuccess && (
-                    <div className='bg-primary/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-primary mb-5'>  
+                    <div className='bg-primary/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-primary mb-5'>
                         <FaCheck className='size-5' />
                         <p>
                             Successfully signed up. You will be redirected to the login page in a few seconds.
@@ -76,18 +76,18 @@ export const SignupCard = ({
                         disabled={false}
                     />
                     <Input
-                        placeholder="Your username"
+                        placeholder="Your userName"
                         required
-                        onChange={(e) => setSignupForm({ ...signupForm, username: e.target.value })}
-                        value={signupForm.username}
+                        onChange={(e) => setSignupForm({ ...signupForm, userName: e.target.value })}
+                        value={signupForm.userName}
                         type="text"
                         disabled={isPending}
                     />
-                    <Button 
+                    <Button
                         disabled={isPending}
                         size="lg"
                         type="submit"
-                        className="w-full"
+                        className="w-full bg-black text-white"
                     >
                         Continue
                     </Button>
@@ -99,7 +99,7 @@ export const SignupCard = ({
                     className='text-s text-muted-foreground mt-4'
                 >
                     Already have an account ? {' '}
-                    <span 
+                    <span
                         className='text-sky-600 hover:underline cursor-pointer'
                         onClick={() => navigate('/auth/signin')}
                     >
