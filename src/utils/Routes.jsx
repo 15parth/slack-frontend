@@ -1,9 +1,9 @@
 import { ProtectedRoute } from "@/components/molecules/ProtectedRoute/ProtectedRoute"
 import { SigninContainer } from "@/components/organisms/Auth/SigninContainer"
 import { SignupContainer } from "@/components/organisms/Auth/SignupContainer"
-import Notfound from "@/components/organisms/Notfound/Notfound"
 import { Auth } from "@/pages/Auth/Auth"
 import { Home } from "@/pages/Home/Home"
+import { Notfound } from "@/pages/Notfound/Notfound"
 import { Route ,Routes} from "react-router-dom"
 
  const AppRoutes = () => {

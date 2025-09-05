@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Toaster } from '@/components/ui/sonner'
 import AppRoutes from './utils/Routes'
 import { AppContextProvider } from './context/AppContextProvider';
+import { Modals } from './components/organisms/Modals/Modal';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AppContextProvider>
        <AppRoutes/>
+       <Modals/>
         <Toaster />
         </AppContextProvider>
     </QueryClientProvider>

@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { useAuth } from '@/hooks/context/useAuth';
 import { toast } from 'sonner';
-// import { useCreateWorkspaceModal } from '@/hooks/context/useCreateWorkspaceModal';
+import { useCreateWorkspaceModal } from '@/hooks/context/useCreateWorkspaceModal';
 
 export const UserButton = () => {
 
@@ -13,10 +13,10 @@ export const UserButton = () => {
 
     const { auth, logout } = useAuth();
 
-    // const { setOpenCreateWorkspaceModal } = useCreateWorkspaceModal();
+    const { setOpenCreateWorkspaceModal } = useCreateWorkspaceModal();
 
     function openWorkspaceCreateModal() {
-        // setOpenCreateWorkspaceModal(true);
+        setOpenCreateWorkspaceModal(true);
     }
 
     async function handleLogout() {
