@@ -3,10 +3,10 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { useFetchWorkspace } from '@/hooks/apis/workspaces/useFetchWorkspace';
-import { useGetWorkspaceById } from '@/hooks/apis/workspaces/useGetWorkspaceById';
+import { useFetchWorkspace } from '@/hooks/api/workspaces/useFetchWorkspace';
+import { useGetWorkspaceById } from '@/hooks/api/workspaces/useGetWorkspaceById';
 
-export const WorkspaceSwitcher = () => {
+ const WorkspaceSwitcher = () => {
 
     const navigate = useNavigate();
 
@@ -20,12 +20,12 @@ export const WorkspaceSwitcher = () => {
         <DropdownMenu>
             <DropdownMenuTrigger>
                 <Button
-                    className='size-9 relative overflow-hidden bg-[#ABABAD] hover:bg-[#ABABAD]/80 font-semibold text-slate-800 text-xl'
+                    className='size-9 relative overflow-hidden bg-[#ABABAD] hover:bg-[#ABABAD]/80 font-semibold text-slate-800 text-xl cursor-pointer'
                 >
                     {isFetching ? (<Loader className='size-5 animate-spin' />) : workspace?.name.charAt(0).toUpperCase()}
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent className="bg-white cursor-pointer">
                 <DropdownMenuItem
                     className='cursor-pointer flex-col justify-start items-start'
                 >
@@ -59,3 +59,6 @@ export const WorkspaceSwitcher = () => {
         </DropdownMenu>
     );
 };
+
+
+export default WorkspaceSwitcher

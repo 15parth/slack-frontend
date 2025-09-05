@@ -36,7 +36,7 @@ export const UserButton = () => {
                     <AvatarFallback>{auth?.user?.userName[0].toUpperCase()}</AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
-            <DropdownMenuContent>
+            <DropdownMenuContent className="bg-white">
                 <DropdownMenuItem 
                 onClick={openWorkspaceCreateModal}
                 className="hover:bg-gray-400"
