@@ -8,11 +8,10 @@ export const createWorkspaceRequest = async ({ name, description, token }) => {
                 'x-access-token': token
             }
         });
-        console.log('Response in create workspace request', response);
         return response?.data?.data;
 
     } catch(error) {
-        console.log('Error in create workspace request', error);
+        console.error('Error in create workspace request', error);
         throw error.response.data;
     }
 };
@@ -24,7 +23,6 @@ export const fetchWorkspacesRequest = async ({ token }) => {
                 'x-access-token': token
             }
         });
-        console.log('Response in fetch workspace request', response);
         return response?.data?.data;
 
     } catch(error) {
@@ -49,34 +47,34 @@ export const fetchWorkspaceDetailsRequest = async ({ workspaceId, token }) => {
     }
 };
 
-// export const deleteWorkspaceRequest = async ({ workspaceId, token}) => {
-//     try {
-//         const response = await axios.delete(`/workspaces/${workspaceId}`, {
-//             headers: {
-//                 'x-access-token': token
-//             }
-//         });
+export const deleteWorkspaceRequest = async ({ workspaceId, token}) => {
+    try {
+        const response = await axios.delete(`/workspace/${workspaceId}`, {
+            headers: {
+                'x-access-token': token
+            }
+        }); 
 
-//         return response?.data?.data;
-//     } catch(error) {
-//         console.log('Error in deleting workspace request', error);
-//         throw error.response.data;
-//     }
-// };
+        return response?.data?.data;
+    } catch(error) {
+        console.log('Error in deleting workspace request', error);
+        throw error.response.data;
+    }
+};
 
-// export const updateWorkspaceRequest = async ({ workspaceId, name, token}) => {
-//     try {
-//         const response = await axios.put(`/workspaces/${workspaceId}`, { name }, {
-//             headers: {
-//                 'x-access-token': token
-//             }
-//         });
-//         return response?.data?.data;
-//     } catch(error) {
-//         console.log('Error in updating workspace request', error);
-//         throw error.response.data;
-//     }
-// };
+export const updateWorkspaceRequest = async ({ workspaceId, name, token}) => {
+    try {
+        const response = await axios.put(`/workspace/${workspaceId}`, { name }, {
+            headers: {
+                'x-access-token': token
+            }
+        });
+        return response?.data?.data;
+    } catch(error) {
+        console.log('Error in updating workspace request', error);
+        throw error.response.data;
+    }
+};
 
 // export const addChannelToWorkspaceRequest = async ({ workspaceId, channelName, token }) => {
 //     try {

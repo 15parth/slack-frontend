@@ -26,8 +26,6 @@ export const UserButton = () => {
 
     }
 
-    console.log('avatar image --> ',auth?.user?.avatar)
-
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className='outline-none relative'>
