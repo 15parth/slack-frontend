@@ -4,8 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/hooks/context/useAuth';
-// import { useCurrentWorkspace } from '@/hooks/context/useCurrentWorkspace';
 import { useGetWorkspaceById } from '@/hooks/api/workspaces/useGetWorkspaceById';
+import { useCurrentWorkspace } from '@/hooks/context/useCurrentWorkspace';
 
 export const WorkspaceNavbar = () => {
 
@@ -14,7 +14,7 @@ export const WorkspaceNavbar = () => {
     const navigate = useNavigate();
     const { logout } = useAuth();
     const { isFetching, workspace, error, isSuccess } = useGetWorkspaceById(workspaceId);
-    // const { setCurrentWorkspace } = useCurrentWorkspace();
+    const { setCurrentWorkspace } = useCurrentWorkspace();
 
     useEffect(() => {
         
@@ -26,9 +26,9 @@ export const WorkspaceNavbar = () => {
             }
         }
         
-        // if(workspace) {
-        //     setCurrentWorkspace(workspace);
-        // }
+        if(workspace) {
+            setCurrentWorkspace(workspace);
+        }
 
 
     }, [workspace, isSuccess, error, isFetching]);

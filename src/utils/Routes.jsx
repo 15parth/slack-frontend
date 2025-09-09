@@ -14,6 +14,12 @@ import { Route ,Routes} from "react-router-dom"
           <Route path="/auth/signin" element={<Auth> <SigninContainer /></Auth>} />
           <Route path="/home" element={<ProtectedRoute><Home/></ProtectedRoute>} />
            <Route path="/workspaces/:workspaceId" element={<ProtectedRoute><WorkspaceLayout>Workspace</WorkspaceLayout></ProtectedRoute>} />
+             <Route 
+            path="/workspaces/:workspaceId/channels/:channelId"
+            element={<ProtectedRoute><WorkspaceLayout>
+              {/* <Channel /> */}
+              Channel
+              </WorkspaceLayout></ProtectedRoute>} />
           <Route path="/*" element={<Notfound />} />
         </Routes>
   )

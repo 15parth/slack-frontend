@@ -1,18 +1,21 @@
 import { AlertTriangleIcon, HashIcon, Loader, MessageSquareTextIcon, SendHorizonalIcon } from 'lucide-react';
 import { useParams } from 'react-router-dom';
 
-// import { SideBarItem } from '@/components/atoms/SideBarItem/SideBarItem';
-// import { UserItem } from '@/components/atoms/UserItem/UserItem';
 import { useGetWorkspaceById } from '@/hooks/api/workspaces/useGetWorkspaceById';
-// import { useCreateChannelModal } from '@/hooks/context/useCreateChannelModal';
 import { WorkspacePanelHeader } from '@/components/molecules/Workspace/WorkspacePanelHeader';
+import { SideBarItem } from '@/components/atoms/SideBarItem/SidebarItem';
+import { WorkspacePanelSection } from '@/components/molecules/Workspace/WorkspacePanelSection';
+import { UserItem } from '@/components/atoms/UserItem/UserItem';
+import { useCreateChannelModal } from '@/hooks/context/useCreateChannelModal';
 
 export const WorkspacePanel = () => {
 
     const { workspaceId } = useParams();
 
-    // const { setOpenCreateChannelModal } = useCreateChannelModal();
+    const { setOpenCreateChannelModal } = useCreateChannelModal();
     const { workspace, isFetching, isSuccess } = useGetWorkspaceById(workspaceId);
+
+    console.log('this is workspace--->', workspace)
 
     if(isFetching) {
 
@@ -46,8 +49,7 @@ export const WorkspacePanel = () => {
                 className='flex flex-col px-2 mt-3'
             >
 
-                sidebar
-                {/* <SideBarItem 
+                <SideBarItem 
                     label="Threads"
                     icon={MessageSquareTextIcon}
                     id="threads"
@@ -58,17 +60,23 @@ export const WorkspacePanel = () => {
                     icon={SendHorizonalIcon}
                     id="drafts"
                     variant='default'
-                /> */}
+                />
             </div>
 
             workspace penal section
-{/* 
+
+            {/* <div>
+                   {workspace?.channels?.map((channel) => {
+                    return <SideBarItem key={channel._id} icon={HashIcon} label={channel.channelName} id={channel._id} />;
+                })}
+            </div> */}
+
             <WorkspacePanelSection
                 label={'Channels'}
                 onIconClick={() => {setOpenCreateChannelModal(true);}}
             >
                 {workspace?.channels?.map((channel) => {
-                    return <SideBarItem key={channel._id} icon={HashIcon} label={channel.name} id={channel._id} />;
+                    return <SideBarItem key={channel._id} icon={HashIcon} label={channel.channelName} id={channel._id} />;
                 })}
             </WorkspacePanelSection>
 
@@ -80,7 +88,7 @@ export const WorkspacePanel = () => {
                 {workspace?.members?.map((item) => {
                     return <UserItem key={item.memberId._id} label={item.memberId.username} id={item.memberId._id} image={item.memberId.avatar} />;
                 })}
-            </WorkspacePanelSection> */}
+            </WorkspacePanelSection>
         </div>
     );
 };
